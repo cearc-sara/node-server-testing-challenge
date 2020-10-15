@@ -13,7 +13,7 @@ server.get("/", (req, res) => {
 server.get("/wizards", (req, res) => {
     Wizards.getAll()
     .then(wizards => {
-        res.status(200).json({ wizards: wizards})
+        res.status(200).json({wizards: wizards})
     })
     .catch(err => {
         res.status(500).json({error: err.message})
@@ -24,7 +24,7 @@ server.post("/wizards", (req, res) => {
     const wizardData = req.body
     Wizards.insert(wizardData)
     .then(wizard => {
-        res.status(201).json({wizards: wizard})
+        res.status(201).json({wizard: wizard})
     })
     .catch(err => {
         res.status(500).json({error: "failed to add wizard"})
